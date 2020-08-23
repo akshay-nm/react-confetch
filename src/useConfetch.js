@@ -30,19 +30,25 @@ export default function useConfetch(config) {
   
 
       const headers = {
-        ...defaultConfig.headers,
+        ...defaultConfig?.headers,
         ...config?.headers
       }
 
-      const method = config?.method || defaultConfig.method || 'GET'
+      const method = config?.method || defaultConfig?.method || 'GET'
       const url = config?.url
-      const endpoint = config?.endpoint
+      const endpoint = config?.endpoint || ''
       const query = config?.query? `?${config.query}` : ''
   
       const body = config?.body? JSON.stringify(config.body) : null
 
+      // process the response, parse response to json by default
+      const onResponse = config?.onResponse || (res => res.json())
 
-      const timeoutDuration = config?.timeoutDuration || defaultConfig.timeoutDuration || 3000
+      // process errors
+      const onError = config?.onError || (e => e)
+
+
+      const timeoutDuration = config?.timeoutDuration || defaultConfig?.timeoutDuration || 3000
       const timeout = Timeout(() => controller.abort(), timeoutDuration)
 
 
@@ -68,13 +74,6 @@ export default function useConfetch(config) {
     }
   }, [loading])
 
-
-
-  // process the response, parse response to json by default
-  const onResponse = config?.onResponse || (res => res.json())
-
-  // process errors
-  const onError = config?.onError || (e => e)
 
 
   // return 
