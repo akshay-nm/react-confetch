@@ -1,6 +1,6 @@
 {
   "name": "react-confetch",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Configurable Fetch exposed as a React Hook",
   "author": "akshay-nm",
   "license": "MIT",
