@@ -1,15 +1,12 @@
 {
   "name": "react-confetch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Configurable Fetch exposed as a React Hook",
   "author": "akshay-nm",
   "license": "MIT",
   "repository": "akshay-nm/react-confetch",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "source": "src/index.js",
   "keywords": [
     "react-confetch",
