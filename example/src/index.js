@@ -6,10 +6,12 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 const globalFetchConfig = {
-  timeoutDuration: 3000,
+  timeoutDuration: 3000
 }
 
 ReactDOM.render(
   <ConfetchContext.Provider value={globalFetchConfig}>
     <App />
-  </ConfetchContext.Provider>, document.getElementById('root'))
+  </ConfetchContext.Provider>,
+  document.getElementById('root')
+)
