@@ -1,6 +1,6 @@
 {
   "name": "react-confetch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Configurable Fetch exposed as a React Hook",
   "author": "akshay-nm",
   "license": "MIT",
@@ -8,6 +8,13 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
+  "keywords": [
+    "react-confetch",
+    "configurable fetch react",
+    "react custom hook",
+    "fetch",
+    "reactjs"
+  ],
   "engines": {
     "node": ">=10"
   },
