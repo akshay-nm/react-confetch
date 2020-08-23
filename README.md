@@ -70,7 +70,7 @@ const App = () => {
     // any error thrown is returned as error
   }
 
-  const { data, loading, error, sendFetchRequest } = useConfetch(config)
+  const { data, loading, error, send } = useConfetch(config)
 
   return (
     <div>
@@ -78,7 +78,7 @@ const App = () => {
       <div>loading: {loading? 'yes' : 'no'}</div>
       <div>error: {error? error.message: '-'}</div>
       <div>
-        <button onClick={sendFetchRequest}>Send a fetch request</button>
+        <button onClick={send} disabled={loading || loading === null}>Send a fetch request</button>
       </div>
     </div>
   )
@@ -87,6 +87,14 @@ const App = () => {
 export default App
 
 ```
+
+The hook returns an object with 4 keys: 
+- data 
+- loading (`false` means request finished loading but some cleanup is required before the next request, `null` means ready)
+- error 
+- send
+
+`send()` can be used to send a fetch request.
 
 ## License
 
