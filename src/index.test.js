@@ -1,3 +1,10 @@
 describe('useConfetch', () => {
-  it('is truthy', () => {})
+  it('fails without ConfetchContext', () => {})
+  it('works without defaultConfig', () => {})
+  it('fails if mandatory parameters are not passed', () => {})
+  it('sends a request when "the send method" is called', () => {})
+  it('aborts a sent request as per timeoutDuration', () => {})
+  it('sends a request when "the send method" is called again after abort', () => {})
+  it('resolves any errors occured in the "error" object', () => {})
+  it('resolves the current state of request in the "loading" object', () => {})
 })
