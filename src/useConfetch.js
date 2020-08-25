@@ -24,6 +24,7 @@ export default function useConfetch(config) {
   const [error, setError] = useState(null)
   const send = useCallback(() => {
     if (loading === null) {
+      setLoading(true)
       const signal = controller.signal
 
       const headers = {
@@ -42,12 +43,11 @@ export default function useConfetch(config) {
       const onResponse = config?.onResponse || ((res) => res.json())
 
       // process errors
-      const onError = config?.onError || ((e) => e)
+      const onError = config?.onError || null
 
       const timeoutDuration =
         config?.timeoutDuration || defaultConfig?.timeoutDuration || 3000
       const timeout = Timeout(() => controller.abort(), timeoutDuration)
-
       window
         .fetch(`${url}${endpoint}${query}`, { method, headers, body, signal })
         .then(async (res) => {
@@ -57,7 +57,13 @@ export default function useConfetch(config) {
         })
         .catch((e) => {
           timeout.clear()
-          setError(onError(e))
+          if (onError) {
+            const err = onError(e)
+            console.log(err)
+            setError(err)
+          } else {
+            setError(e)
+          }
           setLoading(false)
         })
     }
