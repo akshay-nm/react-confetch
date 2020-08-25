@@ -1,5 +1,5 @@
 import React from 'react'
 
-const ConfetchContext = React.createContext(null)
+const ConfetchContext = React.createContext({})
 
 export default ConfetchContext
