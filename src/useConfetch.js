@@ -25,6 +25,8 @@ export default function useConfetch(config) {
   const send = useCallback(() => {
     if (loading === null) {
       setLoading(true)
+      setData(null)
+      setError(null)
       const signal = controller.signal
 
       const headers = {
